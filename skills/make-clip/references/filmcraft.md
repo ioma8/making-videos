@@ -24,7 +24,15 @@ Put bridge options before the subcommand. A shell variable for the CLI and an ex
 "$FC_CLI" --bridge 127.0.0.1:9877 exec file.newSequence '{"name":"Edit","width":1920,"height":1080,"fps":30}'
 ```
 
-Import and inspect to discover current item, clip and track IDs; examples from other projects are not stable. Use `timeline.place` to put source video and audio on tracks and give explicit timing. FilmCraft time is 254,016,000,000 ticks per second; the CLI also exposes seconds and frame forms. `run -` accepts JSON lines in order. Save with `file.saveAs` to a project path and retain referenced media there or in stable locations.
+Import and inspect to discover current item, clip and track IDs; examples from other projects are not stable. Use `timeline.place` to put source video and audio on tracks and give explicit timing. FilmCraft time is 254,016,000,000 ticks per second; the CLI also exposes seconds and frame forms. Integer ticks were reliable for placement time, source in-point and duration in the source workflow; verify the result when using other forms. `run -` accepts JSON lines in order. Save with `file.saveAs` to a project path and retain referenced media there or in stable locations.
+
+For an iteration, save a new project version and use `clip.replaceFromBin` when replacing imported media should preserve timing and motion keyframes; inspect the result. Keep voice, device audio and music on separate tracks where useful, and listen for separation artifacts before accepting processed stems.
+
+## Shorts and demonstrations
+
+For vertical output, choose framing from the actual footage and keep the demonstrated controls and hands visible. Reserve space near edges and the bottom for platform controls; review the export at phone size, especially moving crops and the ends of zooms. Transparent overlays on separate tracks can carry concise labels. For feature demonstrations, establish the subject and benefit early, focus on the requested scenario, and verify control names and claims against the product's documentation.
+
+For emulator demos, capture the actual framebuffer and audio output when available, recording real control events rather than inventing screen states or sounds. Synchronize audio and frames to a shared clock; check the actual source frame rate, timestamps and audible output. Inspect existing connections before changing emulator ports, and restore any temporary changes.
 
 ## Edit and review
 
