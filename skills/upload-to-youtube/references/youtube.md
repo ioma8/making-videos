@@ -4,13 +4,15 @@ Use a connected YouTube tool if it fulfills the request; otherwise, when the use
 
 An upload request authorizes the upload; use the requested visibility. If none was specified, save privately and report that state. Publish publicly only when requested. Verify the chosen title, artist/song relationship and video asset from the user, not inferred filenames. If a download URL is missing, ask or omit it, and mention any in-video promise that still refers to the absent URL. Disclose generated or altered content in Studio as appropriate to the actual video and thumbnail; do not fabricate facts.
 
-## Choose the channel before uploading
+## Choose the browser and channel before uploading
+
+Ask which browser holds the user's signed-in YouTube account unless they have already specified it; if that browser has multiple plausible profiles, ask which profile. Wait for the choice before accessing its session. Use the selected browser and profile to access Studio; do not silently switch to another browser or account. Prefer an available browser integration that can use the chosen session. If a headless session cannot safely access that browser's login, explain the limitation and request a sign-in or another choice; never guess how to decrypt or copy its credentials. The Firefox procedure below is a tested option only when Firefox was selected.
 
 Before starting an upload, inspect the signed-in YouTube account menu and its account/channel switcher, or use an available connected YouTube tool, to enumerate channels accessible in the current session. Present the channel names and any distinguishing account or channel identifiers the interface shows, then ask the user which channel to use. If the user has already explicitly selected a channel for this upload, treat that as their choice; otherwise wait for their answer before sending the video or creating an upload. A single visible channel is not an implicit choice. Do independent preparation while waiting.
 
 Switch to the selected channel and verify its name and, when available, channel ID in Studio immediately before uploading. Account-switcher layouts and labels vary; inspect the live interface rather than relying on a fixed selector. List only channels actually visible, without exposing credentials or unrelated private account details. If the session cannot enumerate every account or channel, say what is visible and ask the user to choose from those or sign in to the missing account. Never guess that an unavailable channel is accessible.
 
-## Temporary session
+## Temporary Firefox session
 
 On the tested Mac, Firefox was `/Applications/Firefox.app/Contents/MacOS/firefox`; geckodriver and Selenium were installed locally. Discover the signed-in profile via `~/Library/Application Support/Firefox/profiles.ini`. Set up a virtual environment if necessary. This example copies only Google/YouTube cookies into a temporary private profile and always deletes it. The live database and WAL copied separately are not an atomic snapshot; if inconsistent, use a clean sign-in or another authorized session rather than modifying the live profile. Cookies are credentials: never print or transmit them.
 
